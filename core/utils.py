@@ -8,9 +8,23 @@ main_menu = """
 """
 user_menu = """
 1. Show products
-2. Add products
-3. Update products
-4. Delete products
+2. Messages
+3. Add products
+4. Update products
+5. Delete products
+6. Logout
+"""
+
+message_menu = """
+1. Send message
+2. Back
+"""
+
+admin_menu = """
+1. Count users
+2. Count posts
+3. Get users
+4. Exit
 """
 
 def get_user_option(menu: str, max_option: int):

@@ -48,3 +48,14 @@ class PostsQueries:
             print("Product deleted")
         except Exception as e:
             print(e)
+
+class CommentsQueries:
+    @staticmethod
+    def add(user_comment):
+        try:
+            query_comm = """
+                    INSERT INTO comments (comment,created_at)
+                    VALUES (%s,CURRENT_TIMESTAMP);
+            """
+        except Exception as e :
+            print(e)

@@ -1,4 +1,4 @@
-from apps.posts.queries import PostsQueries
+from apps.posts.queries import PostsQueries, CommentsQueries
 
 
 class PostsViews(PostsQueries):
@@ -14,7 +14,11 @@ class PostsViews(PostsQueries):
 
     def productupdate(self):
         title = input("Enter title: ")
-        posts_id = int(input("Enter posts id"))
+        posts_id = int(input("Enter posts id: "))
         self.update(title,posts_id)
 
+
+class CommentViews(CommentsQueries):
+    def commentadd(self):
+        user_comment = input("Enter comment: ")
 
