@@ -51,11 +51,26 @@ class PostsQueries:
 
 class CommentsQueries:
     @staticmethod
-    def add(user_comment):
+    def add(user_comment, post_id, user_id):
         try:
             query_comm = """
-                    INSERT INTO comments (comment,created_at)
-                    VALUES (%s,CURRENT_TIMESTAMP);
+                INSERT INTO comments (comment,created_at, post_id, user_id)
+                VALUES (%s, CURRENT_TIMESTAMP, %s, %s);
             """
+            params = (user_comment, post_id, user_id)
+            execute_query(query=query_comm, params=params)
+            print("Comment added")
         except Exception as e :
+            print(e)
+
+    @staticmethod
+    def update(post_id,user_id,user_comment):
+        try:
+            query_comm = """
+                            UPDATE comments SET comment = %s WHERE post_id = %s AND user_id = %s;
+                        """
+            params = (user_comment, post_id, user_id)
+            execute_query(query=query_comm, params=params)
+            print("Update comment")
+        except Exception as e:
             print(e)

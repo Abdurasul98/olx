@@ -19,6 +19,15 @@ class PostsViews(PostsQueries):
 
 
 class CommentViews(CommentsQueries):
+    def commentupdate(self):
+        post_id = int(input("Enter id post: "))
+        user_id = int(input("Enter id user: "))
+        user_comment = input("Enter comment: ")
+        self.update(post_id,user_id,user_comment)
+
     def commentadd(self):
         user_comment = input("Enter comment: ")
+        post_id = int(input("Enter id post: "))
+        user_id = int(input("Enter id user: "))
+        self.add(user_comment,post_id,user_id)
 
